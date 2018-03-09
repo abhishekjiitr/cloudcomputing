@@ -2,6 +2,20 @@
 
 from math import *
 
+def sumDigits(n):
+	return sum(map(lambda x:x*x, map(int, (str(n)))))
+
+def isHappy(n):
+	history = set()
+	while True:
+		if n == 1:
+			return True
+		elif n in history:
+			return False
+		else:
+			history.add(n)
+		n = sumDigits(n)
+
 def PrimeList(N):
 	isPrime = [True for i in range(N+1)]
 	isPrime[0] = isPrime[1] = False
@@ -11,7 +25,7 @@ def PrimeList(N):
 				isPrime[j] = False
 	return filter(lambda x: isPrime[x], range(1, N+1))
 
-def NumPrimes(L, R):
+def NumHappyPrimes(L, R):
 	primes = PrimeList(int(sqrt(R)))
 	isPrime = [1 for i in range(R-L+1)]
 	if L == 1:
@@ -24,9 +38,15 @@ def NumPrimes(L, R):
 			j += p
 	# ans = map(lambda x: x+L, filter(lambda x: isPrime[x], range(R-L+1)))
 	# print ans
+	for i in range(R-L+1):
+		if isPrime[i]:
+			if not isHappy(L+i):
+				isPrime[i]=0
+			# else:
+			# 	print(L+i)
 	return sum(isPrime)
 
 if __name__ == '__main__':
-	MAX = 102
-	print NumPrimes(1,MAX)
-	print PrimeList(MAX)
+	MAX = 100
+	print NumHappyPrimes(1,MAX)
+	# print PrimeList(MAX)

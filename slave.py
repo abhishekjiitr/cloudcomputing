@@ -4,7 +4,7 @@ import gen, primer
 def processMessage(msg):
 	# print msg
 	L, R = map(int, msg.split())
-	numPrimes = primer.NumPrimes(L, R)
+	numPrimes = primer.NumHappyPrimes(L, R)
 	gen.sendToQueue('qresult', str(numPrimes))
 
 def fetchMessage(queueName):

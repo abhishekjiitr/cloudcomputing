@@ -1,4 +1,4 @@
-import gen
+import gen, time
 import slave
 
 def generateQuery(i, j):
@@ -23,6 +23,7 @@ def compileResult(VMs):
 	print("\nAnswer to Query: %d" % (ans))
 
 def distributeQuery(L, R, VMs=4):
+	start_time = time.time()
 	qrange = R-L+1
 	load = qrange / VMs
 	for vm in range(VMs):
@@ -32,7 +33,10 @@ def distributeQuery(L, R, VMs=4):
 			j = R
 		generateQuery(i, j)
 	compileResult(VMs)
+	end_time = time.time()
+	time_taken = end_time-start_time
+	print("The computation took %d seconds" %(time_taken))
 
-inp = raw_input("Algorithm to count prime numbers in a range\nEnter L and R to find prime numbers from L to R:\n")
+inp = raw_input("Algorithm to count happy prime numbers in a range\nEnter L and R to find happy prime numbers from L to R:\n")
 L, R = map(int, inp.split())
 distributeQuery	(L, R, 4)
