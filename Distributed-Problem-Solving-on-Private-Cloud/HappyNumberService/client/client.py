@@ -16,6 +16,7 @@ def listen():
 			time.sleep(3)
 		else:
 			try:
+				print "Message Received: { %s } from Queue: { %s }" %(msg, 'qinfo')
 				processMessage(msg)
 			except:
 				print("Invalid Message: { %s } in Info Queue" %(msg))
