@@ -1,12 +1,12 @@
-# cloudcomputing
+# Cloud Computing
 Experiments with Cloud Computing
 
 
-# Distributed Problem On Public and Private Cloud Platforms
+## Distributed Problem Solving On Public and Private Cloud Platforms
 
 **Objective :**  Test and benchmark any compute intensive application on 
-- public cloud using AWS, GAE or Microsoft Azure and 
-- private cloud using OpenNebula or OpenStack.  
+- Public cloud using AWS, GAE or Microsoft Azure and 
+- Private cloud using OpenNebula or OpenStack.  
 
 **Problem Statement Chosen:**  Given an integer range, L to R ( inclusive of L and R ) find the no. of [Happy](https://en.wikipedia.org/wiki/Happy_number) [Prime Numbers](https://en.wikipedia.org/wiki/Prime_number) in that range.
 
